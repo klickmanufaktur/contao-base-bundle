@@ -1,0 +1,32 @@
+{
+    "name": "klickmanufaktur/contao-base-bundle",
+    "description": "Base functions for contao cms",
+    "type": "contao-bundle",
+    "license": "LGPL-3.0-or-later",
+    "autoload": {
+        "psr-4": {
+            "Klickmanufaktur\\ContaoBaseBundle\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "klickmanufaktur",
+            "email": "patrick@klickmanufaktur.de"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "contao/core-bundle": "^5.5",
+        "contao/manager-bundle": "^5.5"
+    },
+    "config": {
+        "allow-plugins": {
+            "contao-components/installer": true,
+            "php-http/discovery": true,
+            "contao/manager-plugin": true
+        }
+    },
+    "extra": {
+        "contao-manager-plugin": "Klickmanufaktur\\ContaoBaseBundle\\ContaoManager\\Plugin"
+    }
+}

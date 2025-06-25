@@ -1,0 +1,10 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Klickmanufaktur\ContaoBaseBundle\:
+    resource: '../*'
+    exclude:
+      - '../src/{DependencyInjection,Entity,Migrations,Resources,Tests}'
