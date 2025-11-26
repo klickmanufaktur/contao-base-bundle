@@ -4,7 +4,9 @@ namespace Klickmanufaktur\ContaoBaseBundle\Service;
 
 use Contao\FilesModel;
 use Contao\Image\ResizeConfiguration;
+use Contao\Image\ResizeOptions;
 use Contao\System;
+use Imagine\Image\Format;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class ImageService {
@@ -98,7 +100,7 @@ class ImageService {
         $instance = new self();
 
         $image = $instance->imageFactory->create(
-            FilesModel::findByPk($imagePk)->getAbsolutePath(),
+            FilesModel::findByPath($path)->getAbsolutePath(),
             (new ResizeConfiguration())
                 ->setWidth($width)
                 ->setHeight($height)
@@ -133,7 +135,7 @@ class ImageService {
         $instance = new self();
 
         $image = $instance->imageFactory->create(
-            FilesModel::findByPk($imagePk)->getAbsolutePath(),
+            FilesModel::findByPk($pk)->getAbsolutePath(),
             (new ResizeConfiguration())
                 ->setWidth($width)
                 ->setHeight($height)
