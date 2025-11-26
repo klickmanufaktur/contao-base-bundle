@@ -42,8 +42,18 @@ class ImageService {
     {
         $image = $this->imageFactory->create(
             FilesModel::findByPk($imagePk)->getAbsolutePath(),
-            [ $width, $height, $this->getMode($mode) ]
+            (new ResizeConfiguration())
+                ->setWidth($width)
+                ->setHeight($height)
+                ->setMode($this->getMode($mode)),
+            (new ResizeOptions())
+                ->setImagineOptions(['format' => Format::ID_WEBP])
         );
+
+        /*$image = $this->imageFactory->create(
+            FilesModel::findByPk($imagePk)->getAbsolutePath(),
+            [ $width, $height, $this->getMode($mode) ]
+        );*/
 
         return $image->getUrl($this->projectDir);
     }
@@ -88,9 +98,19 @@ class ImageService {
         $instance = new self();
 
         $image = $instance->imageFactory->create(
+            FilesModel::findByPk($imagePk)->getAbsolutePath(),
+            (new ResizeConfiguration())
+                ->setWidth($width)
+                ->setHeight($height)
+                ->setMode($instance->getMode($mode)),
+            (new ResizeOptions())
+                ->setImagineOptions(['format' => Format::ID_WEBP])
+        );
+
+        /*$image = $instance->imageFactory->create(
             FilesModel::findByPath($path)->getAbsolutePath(),
             [$width, $height, $instance->getMode($mode)]
-        );
+        );*/
 
         $fileModel = FilesModel::findByPath($path);
         $readerWriter = $instance->container->get('contao.image.metadata');
@@ -113,9 +133,19 @@ class ImageService {
         $instance = new self();
 
         $image = $instance->imageFactory->create(
+            FilesModel::findByPk($imagePk)->getAbsolutePath(),
+            (new ResizeConfiguration())
+                ->setWidth($width)
+                ->setHeight($height)
+                ->setMode($instance->getMode($mode)),
+            (new ResizeOptions())
+                ->setImagineOptions(['format' => Format::ID_WEBP])
+        );
+
+        /*$image = $instance->imageFactory->create(
             FilesModel::findByPk($pk)->getAbsolutePath(),
             [$width, $height, $instance->getMode($mode)]
-        );
+        );*/
 
         $fileModel = FilesModel::findByPk($pk);
         $readerWriter = $instance->container->get('contao.image.metadata');
