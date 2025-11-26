@@ -101,6 +101,7 @@ class ImageService {
 
         $image = $instance->imageFactory->create(
             FilesModel::findByPath($path)->getAbsolutePath(),
+
             (new ResizeConfiguration())
                 ->setWidth($width)
                 ->setHeight($height)
