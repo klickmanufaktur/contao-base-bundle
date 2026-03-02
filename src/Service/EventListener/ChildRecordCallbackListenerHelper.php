@@ -80,15 +80,15 @@ class ChildRecordCallbackListenerHelper {
 
         if ($arrRow['start'] && $arrRow['stop'])
         {
-            $type .= ' <span class="visibility">(' . sprintf($GLOBALS['TL_LANG']['MSC']['showFromTo'], Date::parse(Config::get('datimFormat'), $arrRow['start']), Date::parse(Config::get('datimFormat'), $arrRow['stop'])) . ')</span>';
+            $type .= ' <span class="visibility">(' . sprintf($GLOBALS['TL_LANG']['MSC']['showFromTo'], \Contao\Date::parse(\Contao\Config::get('datimFormat'), $arrRow['start']), Date::parse(Config::get('datimFormat'), $arrRow['stop'])) . ')</span>';
         }
         elseif ($arrRow['start'])
         {
-            $type .= ' <span class="visibility">(' . sprintf($GLOBALS['TL_LANG']['MSC']['showFrom'], Date::parse(Config::get('datimFormat'), $arrRow['start'])) . ')</span>';
+            $type .= ' <span class="visibility">(' . sprintf($GLOBALS['TL_LANG']['MSC']['showFrom'], \Contao\Date::parse(\Contao\Config::get('datimFormat'), $arrRow['start'])) . ')</span>';
         }
         elseif ($arrRow['stop'])
         {
-            $type .= ' <span class="visibility">(' . sprintf($GLOBALS['TL_LANG']['MSC']['showTo'], Date::parse(Config::get('datimFormat'), $arrRow['stop'])) . ')</span>';
+            $type .= ' <span class="visibility">(' . sprintf($GLOBALS['TL_LANG']['MSC']['showTo'], \Contao\Date::parse(\Contao\Config::get('datimFormat'), $arrRow['stop'])) . ')</span>';
         }
 
         $objModel = new ContentModel();
