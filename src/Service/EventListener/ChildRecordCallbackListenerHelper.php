@@ -2,10 +2,13 @@
 
 namespace Klickmanufaktur\ContaoBaseBundle\Service\EventListener;
 
+use Contao\Config;
 use Contao\ContentModel;
 use Contao\Controller;
+use Contao\Date;
 use Contao\MemberGroupModel;
 use Contao\StringUtil;
+use Throwable;
 
 class ChildRecordCallbackListenerHelper {
 
