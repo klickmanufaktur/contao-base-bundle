@@ -157,7 +157,7 @@ class ChildRecordCallbackListenerHelper {
     }
 
     public function getContentElementGroupLabel($group): string {
-        return $GLOBALS['TL_LANG']['CTE'][$group];
+        return $GLOBALS['TL_LANG']['CTE'][$group] ?? (string) $group;
     }
 
 }
